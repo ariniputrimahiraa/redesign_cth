@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review & FAQ — Mahira Printing</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+      /* =========================================
+         VARIABLES & RESET
+      ========================================= */
+      :root {
+        --primary: #f5c324;
+        --primary-hover: #e5b315;
+        --primary-light: #fffbeb;
+        --dark: #111827;
+        --dark-footer: #0f1115;
+        --text-main: #1f2937;
+        --text-muted: #6b7280;
+        --border-color: #e5e7eb;
+        --bg-light: #fafafa;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.06);
+        --radius-md: 14px;
+        --radius-lg: 20px;
+        --radius-full: 9999px;
+        --transition: all 0.25s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--text-main);
+        background-color: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* =========================================
+         BUTTONS
+      ========================================= */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 12px 22px;
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        transition: var(--transition);
+        border: 1px solid transparent;
+        font-family: inherit;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--dark);
+        box-shadow: 0 4px 12px rgba(245, 195, 36, 0.25);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-2px);
+      }
+
+      .btn-sm {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      /* =========================================
+         NAVBAR (SAMA PERSIS DENGAN INDEX.HTML)
+      ========================================= */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #f3f4f6;
+        padding: 14px 0;
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 42px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--dark);
+        font-weight: 600;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 22px;
+        color: var(--dark);
+        cursor: pointer;
+      }
+
+      /* =========================================
+         REVIEW HERO & RATING SUMMARY
+      ========================================= */
+      .review-hero {
+        padding: 56px 0 36px;
+        text-align: center;
+        background: radial-gradient(circle at 50% 0%, rgba(245, 195, 36, 0.12) 0%, rgba(255, 255, 255, 0) 60%);
+      }
+
+      .badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background-color: var(--primary-light);
+        color: #b45309;
+        border: 1px solid #fde68a;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        padding: 5px 14px;
+        border-radius: var(--radius-full);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .hero-title {
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.2;
+        color: var(--dark);
+        margin-bottom: 14px;
+        letter-spacing: -0.02em;
+      }
+
+      .rating-summary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 13.5px;
+        color: var(--text-muted);
+      }
+
+      .rating-stars {
+        color: var(--primary);
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+
+      .rating-score {
+        font-weight: 800;
+        color: var(--dark);
+      }
+
+      .rating-highlight {
+        color: #d97706;
+        font-weight: 700;
+      }
+
+      /* =========================================
+         FILTER TABS & TESTIMONIAL CARDS
+      ========================================= */
+      .reviews-section {
+        padding: 16px 0 72px;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .filter-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+
+      .filter-btn {
+        padding: 8px 18px;
+        border-radius: var(--radius-full);
+        border: 1px solid var(--border-color);
+        background-color: var(--white);
+        color: var(--text-muted);
+        font-family: inherit;
+        font-size: 12.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .filter-btn:hover {
+        border-color: var(--dark);
+        color: var(--dark);
+      }
+
+      .filter-btn.active {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: var(--dark);
+        box-shadow: 0 3px 10px rgba(245, 195, 36, 0.25);
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .review-card {
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+      }
+
+      .review-card.hidden {
+        display: none;
+      }
+
+      .review-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: #d1d5db;
+      }
+
+      .reviewer-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .reviewer-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fef3c7;
+        color: #b45309;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+
+      .reviewer-name {
+        font-size: 14.5px;
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.25;
+      }
+
+      .reviewer-meta {
+        font-size: 11.5px;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 2px;
+      }
+
+      .verified-tag {
+        color: #059669;
+        font-weight: 600;
+      }
+
+      .card-stars {
+        color: var(--dark);
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+
+      .review-quote {
+        font-size: 13px;
+        color: var(--text-main);
+        line-height: 1.65;
+        margin-bottom: 18px;
+        flex: 1;
+      }
+
+      .review-photo-box {
+        position: relative;
+        height: 165px;
+        border-radius: 14px;
+        overflow: hidden;
+        background-color: #f3f4f6;
+      }
+
+      .review-photo-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.45s ease;
+      }
+
+      .review-card:hover .review-photo-box img {
+        transform: scale(1.04);
+      }
+
+      .photo-product-badge {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: rgba(17, 24, 39, 0.84);
+        backdrop-filter: blur(4px);
+        color: var(--white);
+        font-size: 10.5px;
+        font-weight: 600;
+        padding: 5px 11px;
+        border-radius: var(--radius-full);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .photo-product-badge i {
+        color: var(--primary);
+        font-size: 10px;
+      }
+
+      /* =========================================
+         FAQ ACCORDION SECTION
+      ========================================= */
+      .faq-section {
+        padding: 64px 0 80px;
+        background-color: var(--bg-light);
+      }
+
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+
+      .faq-item {
+        background-color: var(--white);
+        border: 1.5px solid #d1d5db;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .faq-item.active {
+        background-color: var(--primary);
+        border-color: var(--dark);
+        box-shadow: 0 4px 0 var(--dark);
+      }
+
+      .faq-header {
+        width: 100%;
+        padding: 20px 24px;
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-family: inherit;
+        text-align: left;
+        gap: 16px;
+      }
+
+      .faq-title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .faq-num {
+        font-size: 22px;
+        font-weight: 800;
+        color: #9ca3af;
+        min-width: 32px;
+      }
+
+      .faq-item.active .faq-num {
+        color: var(--dark);
+      }
+
+      .faq-question {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.35;
+      }
+
+      .faq-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1.5px solid #9ca3af;
+        background-color: var(--white);
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+
+      .faq-item.active .faq-icon {
+        border-color: var(--dark);
+      }
+
+      .faq-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 24px 0 74px;
+      }
+
+      .faq-item.active .faq-body {
+        max-height: 200px;
+        padding-bottom: 22px;
+      }
+
+      .faq-body p {
+        font-size: 13.5px;
+        color: var(--dark);
+        line-height: 1.65;
+        border-top: 1px solid rgba(17, 24, 39, 0.16);
+        padding-top: 14px;
+      }
+
+      .faq-support-bar {
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .support-info {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .support-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: var(--primary-light);
+        color: #d97706;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+        flex-shrink: 0;
+      }
+
+      .support-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .support-desc {
+        font-size: 12.5px;
+        color: var(--text-muted);
+      }
+
+      /* =========================================
+         FOOTER (SAMA PERSIS DENGAN INDEX.HTML)
+      ========================================= */
+      .footer {
+        background-color: var(--dark-footer);
+        color: #d1d5db;
+        padding: 64px 0 36px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr 1.2fr;
+        gap: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-logo-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
+        padding: 8px 16px;
+        border-radius: 10px;
+        margin-bottom: 18px;
+      }
+
+      .footer-logo-box img {
+        height: 36px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .footer-about {
+        font-size: 13px;
+        color: #9ca3af;
+        line-height: 1.7;
+        max-width: 340px;
+        margin-bottom: 22px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 12px;
+      }
+
+      .social-links a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 15px;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        color: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      .footer-heading {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 18px;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        font-size: 13.5px;
+        color: #9ca3af;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 13.5px;
+        color: #9ca3af;
+        margin-bottom: 14px;
+      }
+
+      .contact-list a {
+        color: #9ca3af;
+        transition: var(--transition);
+      }
+
+      .contact-list a:hover {
+        color: var(--primary);
+      }
+
+      .contact-list i {
+        color: var(--primary);
+        margin-top: 4px;
+        font-size: 14px;
+        width: 16px;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12.5px;
+        color: #6b7280;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      /* =========================================
+         RESPONSIVE BREAKPOINTS
+      ========================================= */
+      @media (max-width: 960px) {
+        .reviews-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 71px;
+          left: 0;
+          right: 0;
+          background: var(--white);
+          flex-direction: column;
+          padding: 24px;
+          gap: 18px;
+          border-bottom: 1px solid var(--border-color);
+          box-shadow: var(--shadow-md);
+          display: none;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .mobile-toggle {
+          display: block;
+        }
+
+        .hero-title {
+          font-size: 30px;
+        }
+
+        .filter-bar {
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          padding-bottom: 10px;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .filter-btn {
+          white-space: nowrap;
+        }
+
+        .faq-body {
+          padding-left: 24px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 580px) {
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-actions .btn {
+          padding: 8px 14px;
+          font-size: 12px;
+        }
+
+        .faq-support-bar .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <img src="assets/image/download.png" alt="Logo Mahira Printing" />
+        </a>
+
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="produk.html">Produk</a></li>
+            <li><a href="jasa.html">Jasa</a></li>
+            <li><a href="portofolio.html">Portfolio</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="riview.html" class="active">Review</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="produk.html" class="btn btn-primary btn-sm"> Pesan Sekarang <i class="fa-solid fa-arrow-right"></i> </a>
+          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Buka Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="review-hero">
+      <div class="container">
+        <div class="badge-pill">
+          <i class="fa-solid fa-star"></i>
+          ULASAN & KEPUASAN PELANGGAN
+        </div>
+
+        <h1 class="hero-title">Apa Kata Mereka Tentang Mahira<br />Printing?</h1>
+
+        <div class="rating-summary">
+          <span class="rating-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </span>
+          <span class="rating-score">4.9</span>
+          <span>• Berdasarkan</span>
+          <span class="rating-highlight">1.200+ ulasan</span>
+          <span>verified order</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FILTER & KARTU ULASAN ================= -->
+    <section class="reviews-section">
+      <div class="container">
+        <!-- Tab Filter Kategori Ulasan -->
+        <div class="filter-bar" id="filterBar">
+          <button type="button" class="filter-btn active" data-filter="all">Semua Ulasan</button>
+          <button type="button" class="filter-btn" data-filter="textile">Textile & Sablon</button>
+          <button type="button" class="filter-btn" data-filter="advertising">Advertising & Signage</button>
+          <button type="button" class="filter-btn" data-filter="custom">Custom & Souvenir</button>
+          <button type="button" class="filter-btn" data-filter="kertas">Kertas & Desain</button>
+        </div>
+
+        <!-- Grid Kartu Testimoni -->
+        <div class="reviews-grid" id="reviewsGrid">
+          <!-- Review 1: Haerudin Udin -->
+          <div class="review-card" data-category="advertising">
+            <div>
+              <div class="reviewer-header">
+                <div class="reviewer-avatar"><i class="fa-solid fa-user"></i></div>
+                <div>
+                  <div class="reviewer-name">Haerudin Udin</div>
+                  <div class="reviewer-meta">
+                    <span>1 bulan lalu</span>
+                    <span>•</span>
+                    <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p class="review-quote">"Pengirimannya super cepat, pesanan 10 spanduk selesai dalam 2 hari. Pelayanannya bagus dan harganya kompetitif terjangkau banget. Recommended!"</p>
+            </div>
+            <div class="review-photo-box">
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=700&q=80" alt="Hasil Cetak Spanduk Flexi" />
+              <span class="photo-product-badge"> <i class="fa-solid fa-tag"></i> Spanduk Flexi 280g </span>
+            </div>
+          </div>
+
+          <!-- Review 2: Andi Nurman -->
+          <div class="review-card" data-category="kertas">
+            <div>
+              <div class="reviewer-header">
+                <div class="reviewer-avatar"><i class="fa-solid fa-user"></i></div>
+                <div>
+                  <div class="reviewer-name">Andi Nurman</div>
+                  <div class="reviewer-meta">
+                    <span>3 pekan lalu</span>
+                    <span>•</span>
+                    <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p class="review-quote">"Printing-nya bagus banget, dari segi kualitas sablon sampai hasil stikernya semuanya rapih. Pelayanannya juga ramah dan cepat. Overall puas, bakal balik lagi kalau butuh printing."</p>
+            </div>
+            <div class="review-photo-box">
+              <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=700&q=80" alt="Box Custom & Hotprint" />
+              <span class="photo-product-badge"> <i class="fa-solid fa-tag"></i> Box Custom & Hotprint </span>
+            </div>
+          </div>
+
+          <!-- Review 3: Riski Riki -->
+          <div class="review-card" data-category="textile">
+            <div>
+              <div class="reviewer-header">
+                <div class="reviewer-avatar"><i class="fa-solid fa-user"></i></div>
+                <div>
+                  <div class="reviewer-name">Riski Riki</div>
+                  <div class="reviewer-meta">
+                    <span>2 hari lalu</span>
+                    <span>•</span>
+                    <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p class="review-quote">"Recommended banget nih bagi yang mau cetak apapun komplit dan cepat... pelayanannya juga ramah hasilnya juga bagus memuaskan pokoknyaa!"</p>
+            </div>
+            <div class="review-photo-box">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Sablon DTF High-Density" />
+              <span class="photo-product-badge"> <i class="fa-solid fa-tag"></i> Sablon DTF High-Density </span>
+            </div>
+          </div>
+
+          <!-- Review 4: Custom & Souvenir -->
+          <div class="review-card" data-category="custom">
+            <div>
+              <div class="reviewer-header">
+                <div class="reviewer-avatar"><i class="fa-solid fa-user"></i></div>
+                <div>
+                  <div class="reviewer-name">Siti Rahmawati</div>
+                  <div class="reviewer-meta">
+                    <span>1 minggu lalu</span>
+                    <span>•</span>
+                    <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p class="review-quote">"Pesan 100 paket notebook deboss dan tumbler custom untuk seminar kantor. Hasil cetakan logo sangat presisi, packaging aman, dan sampai tepat waktu!"</p>
+            </div>
+            <div class="review-photo-box">
+              <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80" alt="Souvenir Notebook & Merchandise" />
+              <span class="photo-product-badge"> <i class="fa-solid fa-tag"></i> Souvenir Corporate Set </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ SECTION (01 - 05) ================= -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="faq-list" id="faqAccordion">
+          <!-- FAQ 01 -->
+          <div class="faq-item active">
+            <button type="button" class="faq-header">
+              <div class="faq-title-wrap">
+                <span class="faq-num">01</span>
+                <span class="faq-question">Pengiriman ke luar daerah menggunakan jasa apa?</span>
+              </div>
+              <span class="faq-icon"><i class="fa-solid fa-minus"></i></span>
+            </button>
+            <div class="faq-body">
+              <p>Pengiriman dapat menggunakan JNE Express atau JNE Cargo. Untuk wilayah Jabodetabek, pengiriman juga dapat menggunakan jasa ojek online sesuai kesepakatan.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 02 -->
+          <div class="faq-item">
+            <button type="button" class="faq-header">
+              <div class="faq-title-wrap">
+                <span class="faq-num">02</span>
+                <span class="faq-question">Lokasi pengiriman dari mana?</span>
+              </div>
+              <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="faq-body">
+              <p>Semua pesanan diproduksi dan dikirim langsung dari workshop utama kami di wilayah Cibinong / Cikarang, Kabupaten Bogor, Jawa Barat.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 03 -->
+          <div class="faq-item">
+            <button type="button" class="faq-header">
+              <div class="faq-title-wrap">
+                <span class="faq-num">03</span>
+                <span class="faq-question">Berapa lama waktu pengerjaannya?</span>
+              </div>
+              <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="faq-body">
+              <p>Untuk cetak digital standar (banner, kartu nama, stiker, brosur) membutuhkan waktu 1–2 hari kerja. Untuk produk custom skala besar estimasi pengerjaan sekitar 3–5 hari kerja setelah desain disetujui.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 04 -->
+          <div class="faq-item">
+            <button type="button" class="faq-header">
+              <div class="faq-title-wrap">
+                <span class="faq-num">04</span>
+                <span class="faq-question">Apakah ada minimal pemesanan?</span>
+              </div>
+              <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="faq-body">
+              <p>Tidak semua produk memiliki batas minimum besar. Untuk banner, print DTF, dan akrilik bisa dipesan mulai dari 1 pcs/set, sedangkan produk kemasan atau kaos sablon mengikuti MOQ masing-masing katalog.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 05 -->
+          <div class="faq-item">
+            <button type="button" class="faq-header">
+              <div class="faq-title-wrap">
+                <span class="faq-num">05</span>
+                <span class="faq-question">Apakah bisa sekaligus melakukan editing desain?</span>
+              </div>
+              <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="faq-body">
+              <p>Tentu bisa! Tim desain kami siap membantu penyesuaian ukuran, revisi teks/warna ringan secara gratis, maupun pembuatan desain baru dari awal sesuai konsep brand Anda.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bar "Punya Pertanyaan Lain?" -->
+        <div class="faq-support-bar">
+          <div class="support-info">
+            <div class="support-icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div>
+              <div class="support-title">Punya Pertanyaan Lain?</div>
+              <div class="support-desc">Customer Support kami siap melayani dan memberikan konsultasi spesifikasi cetak gratis.</div>
+            </div>
+          </div>
+          <a href="https://wa.me/6288291614900?text=Halo%20CS%20Mahira%20Printing,%20saya%20ingin%20bertanya%20mengenai%20spesifikasi%20cetak." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <i class="fa-brands fa-whatsapp"></i> Hubungi CS via WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer" id="kontak">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand Column -->
+          <div>
+            <a href="index.html" class="footer-logo-box">
+              <img src="assets/image/download.png" alt="Logo Mahira Printing" />
+            </a>
+            <p class="footer-about">Mitra percetakan profesional terpercaya untuk kebutuhan branding, kemasan produk, materi promosi, dan perlengkapan bisnis dengan standar kualitas terbaik dan pengerjaan tepat waktu.</p>
+            <div class="social-links">
+              <a href="https://instagram.com/mahiraprinting" target="_blank" rel="noopener noreferrer" aria-label="Instagram Mahira Printing">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/6288291614900" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Mahira Printing">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a href="mailto:mahiraprintingg@gmail.com" aria-label="Email Mahira Printing">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links Column -->
+          <div>
+            <h4 class="footer-heading">Navigasi</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="produk.html">Katalog Produk</a></li>
+              <li><a href="jasa.html">Layanan & Jasa</a></li>
+              <li><a href="portofolio.html">Portfolio Karya</a></li>
+              <li><a href="tentang.html">Tentang Kami</a></li>
+              <li><a href="riview.html">Ulasan Pelanggan</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div>
+            <h4 class="footer-heading">Hubungi Kami</h4>
+            <ul class="contact-list">
+              <li>
+                <i class="fa-brands fa-whatsapp"></i>
+                <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20ingin%20bertanya." target="_blank" rel="noopener noreferrer">0882-9161-4900 (WhatsApp)</a>
+              </li>
+              <li>
+                <i class="fa-regular fa-envelope"></i>
+                <a href="mailto:mahiraprintingg@gmail.com">mahiraprintingg@gmail.com</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-instagram"></i>
+                <a href="https://instagram.com/mahiraprinting" target="_blank" rel="noopener noreferrer">@mahiraprinting</a>
+              </li>
+              <li>
+                <i class="fa-regular fa-clock"></i>
+                <span>Senin – Sabtu: 08.00 – 20.00 WIB</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Mahira Printing. Seluruh Hak Cipta Dilindungi.</p>
+          <p>Percetakan Presisi & Solusi Visual</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+      // 1. Toggle Mobile Menu
+      const mobileToggle = document.getElementById("mobileToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      // 2. Filter Kategori Ulasan
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const reviewCards = document.querySelectorAll(".review-card");
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const selectedFilter = btn.getAttribute("data-filter");
+
+          reviewCards.forEach((card) => {
+            const category = card.getAttribute("data-category");
+            if (selectedFilter === "all" || category === selectedFilter) {
+              card.classList.remove("hidden");
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+        });
+      });
+
+      // 3. Accordion FAQ
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      faqItems.forEach((item) => {
+        const header = item.querySelector(".faq-header");
+        header.addEventListener("click", () => {
+          const isAlreadyActive = item.classList.contains("active");
+
+          faqItems.forEach((el) => {
+            el.classList.remove("active");
+            const icon = el.querySelector(".faq-icon i");
+            icon.classList.remove("fa-minus");
+            icon.classList.add("fa-plus");
+          });
+
+          if (!isAlreadyActive) {
+            item.classList.add("active");
+            const activeIcon = item.querySelector(".faq-icon i");
+            activeIcon.classList.remove("fa-plus");
+            activeIcon.classList.add("fa-minus");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

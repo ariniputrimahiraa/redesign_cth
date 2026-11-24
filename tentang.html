@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami — Mahira Printing</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+      /* =========================================
+         VARIABLES & RESET
+      ========================================= */
+      :root {
+        --primary: #f5c324;
+        --primary-hover: #e5b315;
+        --primary-light: #fffbeb;
+        --dark: #111827;
+        --dark-card: #121316;
+        --dark-footer: #0f1115;
+        --text-main: #1f2937;
+        --text-muted: #6b7280;
+        --border-color: #e5e7eb;
+        --bg-light: #fafafa;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.07);
+        --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.1);
+        --radius-md: 14px;
+        --radius-lg: 20px;
+        --radius-full: 9999px;
+        --transition: all 0.25s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--text-main);
+        background-color: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* =========================================
+         BUTTONS
+      ========================================= */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 12px 22px;
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        transition: var(--transition);
+        border: 1px solid transparent;
+        font-family: inherit;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--dark);
+        box-shadow: 0 4px 12px rgba(245, 195, 36, 0.25);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-2px);
+      }
+
+      .btn-sm {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      /* =========================================
+         NAVBAR (SAMA PERSIS DENGAN INDEX.HTML)
+      ========================================= */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #f3f4f6;
+        padding: 14px 0;
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 42px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--dark);
+        font-weight: 600;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 22px;
+        color: var(--dark);
+        cursor: pointer;
+      }
+
+      /* =========================================
+         HERO TENTANG SECTION
+      ========================================= */
+      .about-hero {
+        padding: 64px 0 76px;
+        background: radial-gradient(circle at 85% 30%, rgba(245, 195, 36, 0.16) 0%, rgba(255, 255, 255, 0) 52%);
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 52px;
+        align-items: center;
+      }
+
+      .badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background-color: var(--primary-light);
+        color: #b45309;
+        border: 1px solid #fde68a;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        padding: 6px 14px;
+        border-radius: var(--radius-full);
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      .hero-title {
+        font-size: 44px;
+        font-weight: 800;
+        line-height: 1.15;
+        color: var(--dark);
+        margin-bottom: 18px;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-desc {
+        font-size: 15px;
+        color: var(--text-muted);
+        margin-bottom: 28px;
+        max-width: 500px;
+      }
+
+      .workshop-card-wrapper {
+        position: relative;
+        background: var(--white);
+        padding: 12px;
+        border-radius: 24px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .workshop-image-box {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        aspect-ratio: 4 / 3.7;
+      }
+
+      .workshop-image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .workshop-card-wrapper:hover .workshop-image-box img {
+        transform: scale(1.03);
+      }
+
+      .badge-top-left {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background: rgba(17, 24, 39, 0.85);
+        backdrop-filter: blur(4px);
+        color: var(--white);
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border-radius: var(--radius-full);
+      }
+
+      .badge-bottom-right {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        background: rgba(17, 24, 39, 0.88);
+        backdrop-filter: blur(4px);
+        color: var(--white);
+        font-size: 11px;
+        font-weight: 600;
+        padding: 6px 13px;
+        border-radius: var(--radius-full);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .badge-bottom-right .dot {
+        width: 7px;
+        height: 7px;
+        background-color: var(--primary);
+        border-radius: 50%;
+      }
+
+      .floating-material-card {
+        position: absolute;
+        bottom: -18px;
+        left: -20px;
+        background: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 12px 16px;
+        box-shadow: var(--shadow-md);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        z-index: 5;
+      }
+
+      .material-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background-color: var(--primary-light);
+        color: #d97706;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+
+      .material-title {
+        font-size: 12.5px;
+        font-weight: 800;
+        color: var(--dark);
+        line-height: 1.2;
+      }
+
+      .material-sub {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      /* =========================================
+         PROFIL USAHA & NILAI KAMI (2 KOLOM)
+      ========================================= */
+      .profile-section {
+        padding: 88px 0;
+        background-color: var(--white);
+      }
+
+      .profile-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 56px;
+        align-items: start;
+      }
+
+      .profile-eyebrow {
+        display: inline-block;
+        background-color: #fef3c7;
+        color: #b45309;
+        font-size: 10.5px;
+        font-weight: 800;
+        letter-spacing: 0.6px;
+        padding: 4px 12px;
+        border-radius: var(--radius-full);
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .profile-title {
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--dark);
+        line-height: 1.25;
+        margin-bottom: 20px;
+        letter-spacing: -0.01em;
+      }
+
+      .profile-text {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.75;
+      }
+
+      .profile-text strong {
+        color: var(--dark);
+      }
+
+      .values-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .value-card {
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: 18px;
+        padding: 24px 26px;
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+      }
+
+      .value-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .value-card.dark-value {
+        background-color: var(--dark-card);
+        border-color: var(--dark-card);
+        color: var(--white);
+        box-shadow: 0 12px 28px rgba(17, 24, 39, 0.16);
+      }
+
+      .value-num {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background-color: #fef3c7;
+        color: #b45309;
+        font-size: 12.5px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .dark-value .value-num {
+        background-color: var(--primary);
+        color: var(--dark);
+      }
+
+      .value-title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: var(--dark);
+      }
+
+      .dark-value .value-title {
+        color: var(--white);
+      }
+
+      .value-desc {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .dark-value .value-desc {
+        color: #d1d5db;
+      }
+
+      /* =========================================
+         CTA SECTION (HUBUNGI KAMI)
+      ========================================= */
+      .cta-section {
+        padding: 16px 0 84px;
+      }
+
+      .cta-box {
+        position: relative;
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 52px 32px;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .cta-box::after {
+        content: "";
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        background: rgba(245, 195, 36, 0.18);
+        border-radius: 50%;
+        bottom: -80px;
+        right: -40px;
+        pointer-events: none;
+      }
+
+      .cta-eyebrow {
+        display: inline-block;
+        background-color: #fef3c7;
+        color: #b45309;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.7px;
+        padding: 4px 12px;
+        border-radius: var(--radius-full);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-title {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-desc {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-bottom: 26px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-action {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* =========================================
+         FOOTER (SAMA PERSIS DENGAN INDEX.HTML)
+      ========================================= */
+      .footer {
+        background-color: var(--dark-footer);
+        color: #d1d5db;
+        padding: 64px 0 36px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr 1.2fr;
+        gap: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-logo-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
+        padding: 8px 16px;
+        border-radius: 10px;
+        margin-bottom: 18px;
+      }
+
+      .footer-logo-box img {
+        height: 36px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .footer-about {
+        font-size: 13px;
+        color: #9ca3af;
+        line-height: 1.7;
+        max-width: 340px;
+        margin-bottom: 22px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 12px;
+      }
+
+      .social-links a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 15px;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        color: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      .footer-heading {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 18px;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        font-size: 13.5px;
+        color: #9ca3af;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 13.5px;
+        color: #9ca3af;
+        margin-bottom: 14px;
+      }
+
+      .contact-list a {
+        color: #9ca3af;
+        transition: var(--transition);
+      }
+
+      .contact-list a:hover {
+        color: var(--primary);
+      }
+
+      .contact-list i {
+        color: var(--primary);
+        margin-top: 4px;
+        font-size: 14px;
+        width: 16px;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12.5px;
+        color: #6b7280;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      /* =========================================
+         RESPONSIVE BREAKPOINTS
+      ========================================= */
+      @media (max-width: 960px) {
+        .hero-grid,
+        .profile-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .floating-material-card {
+          left: 14px;
+          bottom: 14px;
+        }
+
+        .badge-bottom-right {
+          top: 16px;
+          bottom: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 71px;
+          left: 0;
+          right: 0;
+          background: var(--white);
+          flex-direction: column;
+          padding: 24px;
+          gap: 18px;
+          border-bottom: 1px solid var(--border-color);
+          box-shadow: var(--shadow-md);
+          display: none;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .mobile-toggle {
+          display: block;
+        }
+
+        .hero-title {
+          font-size: 34px;
+        }
+
+        .profile-title {
+          font-size: 26px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .nav-actions .btn {
+          padding: 8px 14px;
+          font-size: 12px;
+        }
+
+        .value-card {
+          padding: 20px;
+        }
+
+        .cta-title {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <img src="assets/image/download.png" alt="Logo Mahira Printing" />
+        </a>
+
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="produk.html">Produk</a></li>
+            <li><a href="jasa.html">Jasa</a></li>
+            <li><a href="portofolio.html">Portfolio</a></li>
+            <li><a href="tentang.html" class="active">Tentang</a></li>
+            <li><a href="riview.html">Review</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="produk.html" class="btn btn-primary btn-sm"> Pesan Sekarang <i class="fa-solid fa-arrow-right"></i> </a>
+          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Buka Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="about-hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge-pill">
+            <i class="fa-solid fa-building"></i>
+            TENTANG MAHIRA PRINTING
+          </div>
+
+          <h1 class="hero-title">Lebih dari Sekedar<br />Percetakan.</h1>
+
+          <p class="hero-desc">Mitra cetak terpercaya untuk mentransformasikan gagasan, brand, dan kampanye bisnis Anda menjadi produk cetak bernilai tinggi dengan sentuhan presisi teknis, kalibrasi warna akurat, dan dedikasi penuh.</p>
+
+          <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20ingin%20konsultasi%20kebutuhan%20cetak." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-brands fa-whatsapp"></i> Konsultasi via WhatsApp
+          </a>
+        </div>
+
+        <div class="workshop-card-wrapper">
+          <div class="workshop-image-box">
+            <span class="badge-top-left">WORKSHOP MAHIRA PRINTING</span>
+            <img src="https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=900&q=80" alt="Workshop Mahira Printing" />
+            <span class="badge-bottom-right"> <span class="dot"></span> Ready 24–48 Jam </span>
+          </div>
+
+          <div class="floating-material-card">
+            <div class="material-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div>
+              <div class="material-title">100+ Pilihan Bahan</div>
+              <div class="material-sub">Kertas, Akrilik, Tekstil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROFIL USAHA & NILAI KAMI ================= -->
+    <section class="profile-section">
+      <div class="container profile-grid">
+        <div>
+          <span class="profile-eyebrow">PROFIL USAHA & NILAI KAMI</span>
+          <h2 class="profile-title">Solusi Cetak Lengkap Untuk Berbagai Skala Kebutuhan.</h2>
+          <div class="profile-text">
+            <p><strong>Mahira Printing</strong> merupakan usaha yang bergerak di bidang percetakan dan digital printing dengan menyediakan berbagai kebutuhan cetak, desain, custom, dan produk promosi.</p>
+            <p>
+              Kami melayani kebutuhan untuk bisnis, acara, promosi, organisasi, maupun kebutuhan personal. Berbagai produk dapat disesuaikan dengan kebutuhan pelanggan, mulai dari produk berbahan kertas, textile, signage, hingga souvenir
+              dan custom.
+            </p>
+            <p>Mahira Printing berkomitmen untuk memberikan pelayanan yang mudah dan membantu pelanggan menentukan solusi yang sesuai dengan kebutuhan cetaknya.</p>
+          </div>
+        </div>
+
+        <div class="values-stack">
+          <div class="value-card">
+            <div class="value-num">01</div>
+            <div>
+              <h3 class="value-title">Kualitas Presisi & Standar Unggul</h3>
+              <p class="value-desc">Mengutamakan hasil cetak rapi, akurasi potong millimeter die-cut, warna tajam terkalibrasi Pantone, dan penggunaan tinta original anti-luntur.</p>
+            </div>
+          </div>
+
+          <div class="value-card dark-value">
+            <div class="value-num">02</div>
+            <div>
+              <h3 class="value-title">Solusi Bahan Fleksibel & Efisien</h3>
+              <p class="value-desc">Membantu pelanggan menemukan gramatur kertas terbaik (Art Paper, Ivory, Kraft, Fancy Paper) serta opsi finishing laminate (Doff/Glossy/Spot UV) yang pas dengan alokasi budget Anda.</p>
+            </div>
+          </div>
+
+          <div class="value-card">
+            <div class="value-num">03</div>
+            <div>
+              <h3 class="value-title">Pelayanan Ramah & Konsultasi Desain</h3>
+              <p class="value-desc">Didampingi tim pra-cetak handal: pengecekan resolusi file artwork, format CMYK, bleed, hingga verifikasi digital mock-up gratis sebelum file dieksekusi ke mesin cetak.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA SECTION (HUBUNGI KAMI) ================= -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <span class="cta-eyebrow">HUBUNGI KAMI</span>
+          <h2 class="cta-title">Ada kebutuhan cetak?</h2>
+          <p class="cta-desc">Konsultasikan kebutuhan cetak, desain, atau custom kamu bersama Mahira Printing.</p>
+          <div class="cta-action">
+            <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20ingin%20konsultasi%20kebutuhan%20cetak." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer" id="kontak">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand Column -->
+          <div>
+            <a href="index.html" class="footer-logo-box">
+              <img src="assets/image/download.png" alt="Logo Mahira Printing" />
+            </a>
+            <p class="footer-about">Mitra percetakan profesional terpercaya untuk kebutuhan branding, kemasan produk, materi promosi, dan perlengkapan bisnis dengan standar kualitas terbaik dan pengerjaan tepat waktu.</p>
+            <div class="social-links">
+              <a href="https://instagram.com/mahiraprinting" target="_blank" rel="noopener noreferrer" aria-label="Instagram Mahira Printing">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/6288291614900" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Mahira Printing">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a href="mailto:mahiraprintingg@gmail.com" aria-label="Email Mahira Printing">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links Column -->
+          <div>
+            <h4 class="footer-heading">Navigasi</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="produk.html">Katalog Produk</a></li>
+              <li><a href="jasa.html">Layanan & Jasa</a></li>
+              <li><a href="portofolio.html">Portfolio Karya</a></li>
+              <li><a href="tentang.html">Tentang Kami</a></li>
+              <li><a href="riview.html">Ulasan Pelanggan</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div>
+            <h4 class="footer-heading">Hubungi Kami</h4>
+            <ul class="contact-list">
+              <li>
+                <i class="fa-brands fa-whatsapp"></i>
+                <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20ingin%20bertanya." target="_blank" rel="noopener noreferrer">0882-9161-4900 (WhatsApp)</a>
+              </li>
+              <li>
+                <i class="fa-regular fa-envelope"></i>
+                <a href="mailto:mahiraprintingg@gmail.com">mahiraprintingg@gmail.com</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-instagram"></i>
+                <a href="https://instagram.com/mahiraprinting" target="_blank" rel="noopener noreferrer">@mahiraprinting</a>
+              </li>
+              <li>
+                <i class="fa-regular fa-clock"></i>
+                <span>Senin – Sabtu: 08.00 – 20.00 WIB</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Mahira Printing. Seluruh Hak Cipta Dilindungi.</p>
+          <p>Percetakan Presisi & Solusi Visual</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+      const mobileToggle = document.getElementById("mobileToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

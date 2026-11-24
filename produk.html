@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produk — Mahira Printing</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+      /* =========================================
+         VARIABLES & RESET
+      ========================================= */
+      :root {
+        --primary: #f5c324;
+        --primary-hover: #e5b315;
+        --primary-light: #fffbeb;
+        --dark: #111827;
+        --dark-footer: #0f1115;
+        --text-main: #1f2937;
+        --text-muted: #6b7280;
+        --border-color: #e5e7eb;
+        --bg-light: #fafafa;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+        --radius-md: 14px;
+        --radius-lg: 20px;
+        --radius-full: 9999px;
+        --transition: all 0.25s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--text-main);
+        background-color: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* =========================================
+         BUTTONS
+      ========================================= */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 12px 22px;
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        transition: var(--transition);
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--dark);
+        box-shadow: 0 4px 12px rgba(245, 195, 36, 0.25);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background-color: var(--white);
+        color: var(--dark);
+        border-color: var(--border-color);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--dark);
+        background-color: #f9fafb;
+      }
+
+      .btn-sm {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      /* =========================================
+         NAVBAR
+      ========================================= */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #f3f4f6;
+        padding: 14px 0;
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 42px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--dark);
+        font-weight: 700;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 22px;
+        color: var(--dark);
+        cursor: pointer;
+      }
+
+      /* =========================================
+         HERO PRODUK (COLLAGE 3 GAMBAR)
+      ========================================= */
+      .product-hero {
+        padding: 56px 0 64px;
+        background: radial-gradient(circle at 85% 25%, rgba(245, 195, 36, 0.14) 0%, rgba(255, 255, 255, 0) 50%);
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.05fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 42px;
+        font-weight: 800;
+        line-height: 1.18;
+        color: var(--dark);
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-desc {
+        font-size: 15px;
+        color: var(--text-muted);
+        margin-bottom: 28px;
+        max-width: 480px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero-collage {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        grid-template-rows: repeat(2, 165px);
+        gap: 16px;
+      }
+
+      .collage-card {
+        position: relative;
+        background: var(--white);
+        padding: 8px;
+        border-radius: 18px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+      }
+
+      .collage-card.large {
+        grid-row: 1 / 3;
+      }
+
+      .collage-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .collage-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.45s ease;
+      }
+
+      .collage-card:hover .collage-inner img {
+        transform: scale(1.05);
+      }
+
+      .collage-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(17, 24, 39, 0.78);
+        backdrop-filter: blur(4px);
+        color: var(--white);
+        font-size: 10.5px;
+        font-weight: 600;
+        padding: 5px 11px;
+        border-radius: var(--radius-full);
+      }
+
+      /* =========================================
+         FILTER TABS & KATALOG PRODUK
+      ========================================= */
+      .catalog-wrapper {
+        padding: 48px 0 80px;
+        background-color: var(--white);
+      }
+
+      .filter-bar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding-bottom: 36px;
+        margin-bottom: 36px;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .filter-btn {
+        padding: 9px 18px;
+        border-radius: var(--radius-full);
+        border: 1px solid var(--border-color);
+        background-color: var(--white);
+        color: var(--text-muted);
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .filter-btn:hover {
+        border-color: var(--dark);
+        color: var(--dark);
+      }
+
+      .filter-btn.active {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: var(--dark);
+        box-shadow: 0 4px 12px rgba(245, 195, 36, 0.25);
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+
+      .product-card {
+        background: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .product-card.hidden {
+        display: none;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+        border-color: #d1d5db;
+      }
+
+      .product-thumb {
+        position: relative;
+        height: 215px;
+        overflow: hidden;
+        background-color: #f3f4f6;
+      }
+
+      .product-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-thumb img {
+        transform: scale(1.05);
+      }
+
+      .category-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background-color: rgba(17, 24, 39, 0.85);
+        backdrop-filter: blur(4px);
+        color: var(--white);
+        font-size: 11px;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: var(--radius-full);
+      }
+
+      .product-body {
+        padding: 22px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-meta-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #d97706;
+        margin-bottom: 6px;
+      }
+
+      .product-meta-top span.moq {
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .product-title {
+        font-size: 17.5px;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 8px;
+        line-height: 1.35;
+      }
+
+      .product-desc {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 22px;
+        flex: 1;
+      }
+
+      .product-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 14px;
+        border-top: 1px solid #f3f4f6;
+        gap: 10px;
+      }
+
+      .product-spec {
+        font-size: 11.5px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* =========================================
+         CTA BANNER SECTION
+      ========================================= */
+      .cta-section {
+        padding: 20px 0 80px;
+        background-color: var(--white);
+      }
+
+      .cta-box {
+        position: relative;
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 56px 32px;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .cta-box::after {
+        content: "";
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        background: rgba(245, 195, 36, 0.18);
+        border-radius: 50%;
+        bottom: -80px;
+        right: -50px;
+        pointer-events: none;
+      }
+
+      .cta-title {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 14px;
+        line-height: 1.3;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-desc {
+        font-size: 14.5px;
+        color: var(--text-muted);
+        max-width: 560px;
+        margin: 0 auto 28px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-action {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* =========================================
+         FOOTER
+      ========================================= */
+      .footer {
+        background-color: var(--dark-footer);
+        color: #d1d5db;
+        padding: 64px 0 36px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr 1.2fr;
+        gap: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-logo-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
+        padding: 8px 16px;
+        border-radius: 10px;
+        margin-bottom: 18px;
+      }
+
+      .footer-logo-box img {
+        height: 36px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .footer-about {
+        font-size: 13px;
+        color: #9ca3af;
+        line-height: 1.7;
+        max-width: 340px;
+        margin-bottom: 22px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 12px;
+      }
+
+      .social-links a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 15px;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        color: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      .footer-heading {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 18px;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        font-size: 13.5px;
+        color: #9ca3af;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 13.5px;
+        color: #9ca3af;
+        margin-bottom: 14px;
+      }
+
+      .contact-list a {
+        color: #9ca3af;
+        transition: var(--transition);
+      }
+
+      .contact-list a:hover {
+        color: var(--primary);
+      }
+
+      .contact-list i {
+        color: var(--primary);
+        margin-top: 4px;
+        font-size: 14px;
+        width: 16px;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12.5px;
+        color: #6b7280;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      /* =========================================
+         RESPONSIVE BREAKPOINTS
+      ========================================= */
+      @media (max-width: 1024px) {
+        .hero-title {
+          font-size: 36px;
+        }
+        .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 820px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .hero-collage {
+          grid-template-rows: repeat(2, 150px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 71px;
+          left: 0;
+          right: 0;
+          background: var(--white);
+          flex-direction: column;
+          padding: 24px;
+          gap: 18px;
+          border-bottom: 1px solid var(--border-color);
+          box-shadow: var(--shadow-md);
+          display: none;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .mobile-toggle {
+          display: block;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+          font-size: 30px;
+        }
+
+        .hero-collage {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 200px 130px;
+        }
+
+        .collage-card.large {
+          grid-column: 1 / 3;
+          grid-row: 1 / 2;
+        }
+
+        .hero-buttons .btn {
+          width: 100%;
+        }
+
+        .filter-bar {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          padding-bottom: 16px;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .filter-btn {
+          white-space: nowrap;
+        }
+
+        .cta-title {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <img src="assets/image/download.png" alt="Logo Mahira Printing" />
+        </a>
+
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="produk.html" class="active">Produk</a></li>
+            <li><a href="jasa.html">Jasa</a></li>
+            <li><a href="portofolio.html">Portfolio</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="riview.html">Review</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20ingin%20memesan%20produk%20cetak." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            Pesan Sekarang <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Buka Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="product-hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 class="hero-title">Temukan Produk<br />Yang Kamu Butuhkan</h1>
+          <p class="hero-desc">Jelajahi berbagai kebutuhan percetakan, promosi, souvenir, dan desain dari Mahira Printing.</p>
+          <div class="hero-buttons">
+            <a href="#katalog" class="btn btn-primary"> Lihat Semua Produk <i class="fa-solid fa-arrow-down"></i> </a>
+            <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20ingin%20konsultasi%20produk." target="_blank" rel="noopener noreferrer" class="btn btn-outline"> <i class="fa-brands fa-whatsapp"></i> Konsultasi </a>
+          </div>
+        </div>
+
+        <!-- Kolase 3 Foto Produk Unggulan -->
+        <div class="hero-collage">
+          <div class="collage-card large">
+            <div class="collage-inner">
+              <span class="collage-badge">Produk Populer</span>
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Banner & Display Promosi" />
+            </div>
+          </div>
+          <div class="collage-card">
+            <div class="collage-inner">
+              <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80" alt="Kemasan Karton Custom" />
+            </div>
+          </div>
+          <div class="collage-card">
+            <div class="collage-inner">
+              <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Kartu Nama & Corporate Print" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KATALOG & FILTER PRODUK ================= -->
+    <section class="catalog-wrapper" id="katalog">
+      <div class="container">
+        <!-- Tab Filter Kategori -->
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-btn active" data-filter="all">Semua Produk</button>
+          <button class="filter-btn" data-filter="textile">Textile & Sablon</button>
+          <button class="filter-btn" data-filter="advertising">Advertising & Signage</button>
+          <button class="filter-btn" data-filter="custom">Custom & Souvenir</button>
+          <button class="filter-btn" data-filter="kertas">Kertas & Desain</button>
+        </div>
+
+        <!-- Grid 6 Kartu Produk -->
+        <div class="products-grid" id="productsGrid">
+          <!-- 1. Kartu Nama Dof Premium -->
+          <div class="product-card" data-category="kertas">
+            <div class="product-thumb">
+              <span class="category-badge">Kertas & Desain</span>
+              <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" alt="Kartu Nama Dof Premium" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta-top">
+                <span>Harga Mulai dari Rp 65.000 / box</span>
+                <span class="moq">MOQ 1 Box</span>
+              </div>
+              <h3 class="product-title">Kartu Nama Dof Premium</h3>
+              <p class="product-desc">Hasil akhir sentuhan lembut seperti beludru dengan aksen spot UV khusus dan foil pada art board 400 gsm yang sangat tebal.</p>
+              <div class="product-footer">
+                <span class="product-spec">400gsm Art Carton + Spot UV</span>
+                <a href="detail_produk.html?produk=kartu-nama" class="btn btn-primary btn-sm"> Lihat Detail <i class="fa-solid fa-chevron-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Kotak Kemasan -->
+          <div class="product-card" data-category="kertas">
+            <div class="product-thumb">
+              <span class="category-badge">Kertas & Desain</span>
+              <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=800&q=80" alt="Kotak Kemasan" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta-top">
+                <span>Harga Mulai dari Rp 6.500 / pcs</span>
+                <span class="moq">MOQ 100 pcs</span>
+              </div>
+              <h3 class="product-title">Kotak Kemasan</h3>
+              <p class="product-desc">Kotak pengiriman mailer berbahan kraft dan bergelombang e-flute yang tahan lama, disesuaikan untuk merek e-commerce dengan bahan daur ulang.</p>
+              <div class="product-footer">
+                <span class="product-spec">E-Flute Kraft + Sablon / Offset</span>
+                <a href="detail_produk.html?produk=kotak-kemasan" class="btn btn-primary btn-sm"> Lihat Detail <i class="fa-solid fa-chevron-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Banner Roll-Up -->
+          <div class="product-card" data-category="advertising">
+            <div class="product-thumb">
+              <span class="category-badge">Advertising & Signage</span>
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Banner Roll-Up" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta-top">
+                <span>Harga Mulai dari Rp 195.000 / set</span>
+                <span class="moq">MOQ 1 Set</span>
+              </div>
+              <h3 class="product-title">Banner Roll-Up</h3>
+              <p class="product-desc">Banner visual anti-keriting yang hidup, dilengkapi dengan penyangga tarik aluminium yang tahan lama dan tas kanvas.</p>
+              <div class="product-footer">
+                <span class="product-spec">85 x 200 cm + Albatros Matte</span>
+                <a href="detail_produk.html?produk=banner-rollup" class="btn btn-primary btn-sm"> Lihat Detail <i class="fa-solid fa-chevron-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Kaos Katun Combed Sablon -->
+          <div class="product-card" data-category="textile">
+            <div class="product-thumb">
+              <span class="category-badge">Textile & Sablon</span>
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Kaos Katun Combed Sablon" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta-top">
+                <span>Harga Mulai dari Rp 65.000 / pcs</span>
+                <span class="moq">MOQ 24 Pcs</span>
+              </div>
+              <h3 class="product-title">Kaos Katun Combed Sablon</h3>
+              <p class="product-desc">Sablon plastisol berkerapatan tinggi dan discharge pada katun combed 24s/30s premium.</p>
+              <div class="product-footer">
+                <span class="product-spec">100% Cotton + Plastisol</span>
+                <a href="detail_produk.html?produk=kaos-sablon" class="btn btn-primary btn-sm"> Lihat Detail <i class="fa-solid fa-chevron-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Papan Nama & Pajangan Akrilik Kustom -->
+          <div class="product-card" data-category="advertising">
+            <div class="product-thumb">
+              <span class="category-badge">Advertising & Signage</span>
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Papan Nama & Pajangan Akrilik Kustom" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta-top">
+                <span>Harga Mulai dari Rp 85.000 / pcs</span>
+                <span class="moq">MOQ 1 Pcs</span>
+              </div>
+              <h3 class="product-title">Papan Nama & Pajangan Akrilik Kustom</h3>
+              <p class="product-desc">Akrilik cor kejernihan tinggi potong laser dengan cetak datar UV.</p>
+              <div class="product-footer">
+                <span class="product-spec">5mm Clear Cast + UV Flatbed</span>
+                <a href="detail_produk.html?produk=papan-akrilik" class="btn btn-primary btn-sm"> Lihat Detail <i class="fa-solid fa-chevron-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Buku Catatan -->
+          <div class="product-card" data-category="custom">
+            <div class="product-thumb">
+              <span class="category-badge">Custom & Souvenir</span>
+              <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="Buku Catatan" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta-top">
+                <span>Harga Mulai dari Rp 35.000 / pcs</span>
+                <span class="moq">MOQ 50 Pcs</span>
+              </div>
+              <h3 class="product-title">Buku Catatan</h3>
+              <p class="product-desc">Sampul keras leatherette deboss kustom dengan pita pembatas, tali elastis, dan isi 80gsm.</p>
+              <div class="product-footer">
+                <span class="product-spec">Hardcover PU + Deboss Logo</span>
+                <a href="detail_produk.html?produk=buku-catatan" class="btn btn-primary btn-sm"> Lihat Detail <i class="fa-solid fa-chevron-right"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA SECTION ================= -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-title">Butuh Ukuran Khusus Atau<br />Pekerjaan Cepat?</h2>
+          <p class="cta-desc">Konsultasikan langsung dengan tim kami. Kirim file desain Anda, pilih bahan cetak yang tersedia, dan dapatkan rincian harga yang jelas tanpa biaya tambahan tersembunyi.</p>
+          <div class="cta-action">
+            <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20butuh%20cetak%20ukuran%20khusus%20/%20pengerjaan%20cepat." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <i class="fa-brands fa-whatsapp"></i> Konsultasi via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer" id="tentang">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="footer-logo-box">
+              <img src="assets/image/download.png" alt="Logo Mahira Printing" />
+            </a>
+            <p class="footer-about">Mahira Printing berkomitmen memberikan hasil cetak berkualitas dan terpercaya untuk kebutuhan bisnis Anda melalui layanan cetak offset, digital, serta pembuatan kemasan khusus.</p>
+            <div class="social-links">
+              <a href="https://instagram.com/mahiraprinting" target="_blank" rel="noopener noreferrer" aria-label="Instagram Mahira Printing"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://wa.me/6288291614900" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Mahira Printing"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="mailto:mahiraprintingg@gmail.com" aria-label="Email Mahira Printing"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">NAVIGASI</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="produk.html">Produk</a></li>
+              <li><a href="jasa.html">Jasa</a></li>
+              <li><a href="portofolio.html">Portfolio</a></li>
+              <li><a href="tentang.html">Tentang</a></li>
+              <li><a href="riview.html">Review</a></li>
+            </ul>
+          </div>
+
+          <div id="kontak">
+            <h4 class="footer-heading">CONTACT & SUPPORT</h4>
+            <ul class="contact-list">
+              <li>
+                <i class="fa-regular fa-envelope"></i>
+                <a href="mailto:mahiraprintingg@gmail.com">mahiraprintingg@gmail.com</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-instagram"></i>
+                <a href="https://instagram.com/mahiraprinting" target="_blank" rel="noopener noreferrer">@mahiraprinting</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-whatsapp"></i>
+                <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20ingin%20bertanya." target="_blank" rel="noopener noreferrer">0882-9161-4900 (WhatsApp)</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>&copy; <span id="currentYear">2026</span> Mahira Printing. Hak Cipta Dilindungi Undang-Undang.</span>
+          <span>Presisi dalam Setiap Cetakan.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+      // 1. Tahun otomatis di footer
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+      // 2. Toggle Menu Mobile
+      const mobileToggle = document.getElementById("mobileToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        const icon = mobileToggle.querySelector("i");
+        if (navLinks.classList.contains("open")) {
+          icon.classList.replace("fa-bars", "fa-xmark");
+        } else {
+          icon.classList.replace("fa-xmark", "fa-bars");
+        }
+      });
+
+      // 3. Filter Kategori Produk Interaktif
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const productCards = document.querySelectorAll(".product-card");
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filterValue = btn.getAttribute("data-filter");
+
+          productCards.forEach((card) => {
+            const category = card.getAttribute("data-category");
+            if (filterValue === "all" || filterValue === category) {
+              card.classList.remove("hidden");
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

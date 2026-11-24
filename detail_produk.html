@@ -1,0 +1,1625 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">Detail Produk | Mahira Printing</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+      /* =========================================
+       VARIABLES & RESET
+      ========================================= */
+      :root {
+        --primary: #f5c324;
+        --primary-hover: #e5b315;
+        --primary-light: #fffbeb;
+        --dark: #111827;
+        --dark-footer: #0f1115;
+        --text-main: #1f2937;
+        --text-muted: #6b7280;
+        --border-color: #e5e7eb;
+        --bg-light: #fafafa;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+        --radius-md: 14px;
+        --radius-lg: 20px;
+        --radius-full: 9999px;
+        --transition: all 0.25s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--text-main);
+        background-color: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* =========================================
+       BUTTONS
+      ========================================= */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 13.5px;
+        padding: 12px 22px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: var(--transition);
+        border: 1px solid transparent;
+        font-family: inherit;
+      }
+
+      .btn-pill {
+        border-radius: var(--radius-full);
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--dark);
+        box-shadow: 0 4px 12px rgba(245, 195, 36, 0.25);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-2px);
+      }
+
+      .btn-dark {
+        background-color: var(--dark);
+        color: var(--white);
+      }
+
+      .btn-dark:hover {
+        background-color: #1f2937;
+        transform: translateY(-2px);
+      }
+
+      .btn-soft {
+        background-color: #f3f4f6;
+        color: var(--dark);
+      }
+
+      .btn-soft:hover {
+        background-color: #e5e7eb;
+      }
+
+      .btn-sm {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      /* =========================================
+       NAVBAR
+      ========================================= */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #f3f4f6;
+        padding: 14px 0;
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 42px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--dark);
+        font-weight: 700;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 22px;
+        color: var(--dark);
+        cursor: pointer;
+      }
+
+      /* =========================================
+       DETAIL PRODUK MAIN SECTION
+      ========================================= */
+      .product-detail-section {
+        padding: 48px 0 72px;
+        background-color: var(--white);
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .gallery-card {
+        position: relative;
+        background-color: #f4f5f7;
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 24px 24px 24px 86px;
+        overflow: hidden;
+        min-height: 490px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .gallery-card::before {
+        content: "";
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        background: radial-gradient(circle, rgba(245, 195, 36, 0.75) 0%, rgba(245, 195, 36, 0.2) 70%);
+        border-radius: 50%;
+        bottom: -65px;
+        left: -65px;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .gallery-top-bar {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        right: 18px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      .badge-terlaris {
+        background-color: var(--primary);
+        color: var(--dark);
+        font-size: 11px;
+        font-weight: 800;
+        padding: 5px 12px;
+        border-radius: var(--radius-full);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .gallery-brand-mark {
+        font-weight: 800;
+        font-size: 16px;
+        color: #4b5563;
+        line-height: 1.05;
+        text-align: right;
+      }
+
+      .gallery-brand-mark span {
+        display: block;
+        font-size: 9px;
+        letter-spacing: 2px;
+        color: #9ca3af;
+        margin-top: 2px;
+      }
+
+      .gallery-thumbs {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 4;
+      }
+
+      .thumb-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        border: 2px solid var(--white);
+        background-color: var(--white);
+        padding: 3px;
+        cursor: pointer;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+      }
+
+      .thumb-btn.active,
+      .thumb-btn:hover {
+        border-color: var(--primary);
+        transform: scale(1.06);
+      }
+
+      .thumb-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .main-product-img {
+        position: relative;
+        z-index: 2;
+        max-height: 360px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-top: 24px;
+        transition:
+          opacity 0.25s ease,
+          transform 0.35s ease;
+      }
+
+      .gallery-card:hover .main-product-img {
+        transform: scale(1.02);
+      }
+
+      .category-breadcrumb {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .category-breadcrumb .cat-name {
+        color: #d97706;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .category-breadcrumb .cat-sub {
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .product-title {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--dark);
+        line-height: 1.2;
+        margin-bottom: 18px;
+        letter-spacing: -0.02em;
+      }
+
+      .price-stock-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid #f3f4f6;
+        margin-bottom: 20px;
+      }
+
+      .price-amount {
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--dark);
+        line-height: 1.15;
+      }
+
+      .price-amount span {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      .price-note {
+        font-size: 11.5px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      .stock-badge {
+        background-color: #f3f4f6;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 6px 14px;
+        text-align: center;
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+
+      .stock-badge strong {
+        display: block;
+        font-size: 13px;
+        color: var(--dark);
+        font-weight: 800;
+      }
+
+      .desc-label {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: var(--dark);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .desc-label::before {
+        content: "";
+        width: 3px;
+        height: 12px;
+        background-color: var(--primary);
+        border-radius: 2px;
+      }
+
+      .product-description {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        line-height: 1.65;
+        margin-bottom: 22px;
+      }
+
+      .spec-box {
+        background-color: var(--bg-light);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 18px 20px;
+        margin-bottom: 22px;
+      }
+
+      .spec-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .spec-header-title {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .spec-header-tag {
+        font-size: 10.5px;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      .spec-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .spec-item-label {
+        font-size: 10.5px;
+        color: var(--text-muted);
+        margin-bottom: 2px;
+      }
+
+      .spec-item-value {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .spec-estimate {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px dashed #e5e7eb;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11.5px;
+        color: var(--text-muted);
+      }
+
+      .spec-estimate strong {
+        color: var(--dark);
+      }
+
+      .detail-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+
+      .custom-info-box {
+        background-color: var(--primary-light);
+        border: 1px solid #fde68a;
+        border-radius: 16px;
+        padding: 16px 20px;
+        margin-bottom: 22px;
+      }
+
+      .custom-info-title {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 6px;
+      }
+
+      .custom-info-title i {
+        color: #d97706;
+      }
+
+      .custom-info-desc {
+        font-size: 12px;
+        color: var(--text-muted);
+        line-height: 1.55;
+        margin-bottom: 10px;
+      }
+
+      .custom-wa-link {
+        font-size: 12px;
+        font-weight: 700;
+        color: #b45309;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: var(--transition);
+      }
+
+      .custom-wa-link:hover {
+        color: var(--dark);
+        transform: translateX(3px);
+      }
+
+      .trust-badges {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding-top: 14px;
+        border-top: 1px solid #f3f4f6;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .trust-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--primary-light);
+        color: #d97706;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        flex-shrink: 0;
+      }
+
+      .trust-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.2;
+      }
+
+      .trust-sub {
+        font-size: 10.5px;
+        color: var(--text-muted);
+      }
+
+      /* =========================================
+       TABEL SKEMA HARGA (4 KOLOM)
+      ========================================= */
+      .pricing-section {
+        padding: 68px 0 84px;
+        background-color: var(--bg-light);
+      }
+
+      .pricing-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 38px;
+        flex-wrap: wrap;
+      }
+
+      .pricing-eyebrow {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: #d97706;
+        margin-bottom: 6px;
+      }
+
+      .pricing-title {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 6px;
+      }
+
+      .pricing-subtitle {
+        font-size: 13.5px;
+        color: var(--text-muted);
+      }
+
+      .pricing-note-pill {
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        padding: 7px 14px;
+        border-radius: var(--radius-full);
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .price-card {
+        position: relative;
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 26px 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+      }
+
+      .price-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .price-card.popular {
+        border: 2px solid var(--primary);
+        box-shadow: 0 12px 28px rgba(245, 195, 36, 0.16);
+      }
+
+      .popular-tag {
+        position: absolute;
+        top: -12px;
+        right: 18px;
+        background-color: var(--primary);
+        color: var(--dark);
+        font-size: 10px;
+        font-weight: 800;
+        padding: 4px 12px;
+        border-radius: var(--radius-full);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .tier-label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+      }
+
+      .popular .tier-label {
+        color: #d97706;
+      }
+
+      .tier-qty {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 12px;
+      }
+
+      .tier-price {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--dark);
+        padding-bottom: 14px;
+        border-bottom: 1px solid #f3f4f6;
+        margin-bottom: 16px;
+      }
+
+      .tier-price span {
+        font-size: 11.5px;
+        font-weight: 500;
+        color: var(--text-muted);
+      }
+
+      .tier-features {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      .tier-features li {
+        font-size: 12px;
+        color: var(--text-muted);
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .tier-features li i {
+        color: #d97706;
+        margin-top: 3px;
+        font-size: 11px;
+      }
+
+      /* =========================================
+       FOOTER
+      ========================================= */
+      .footer {
+        background-color: var(--dark-footer);
+        color: #d1d5db;
+        padding: 64px 0 36px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr 1.2fr;
+        gap: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-logo-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
+        padding: 8px 16px;
+        border-radius: 10px;
+        margin-bottom: 18px;
+      }
+
+      .footer-logo-box img {
+        height: 36px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .footer-about {
+        font-size: 13px;
+        color: #9ca3af;
+        line-height: 1.7;
+        max-width: 340px;
+        margin-bottom: 22px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 12px;
+      }
+
+      .social-links a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 15px;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        color: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      .footer-heading {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 18px;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        font-size: 13.5px;
+        color: #9ca3af;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 13.5px;
+        color: #9ca3af;
+        margin-bottom: 14px;
+      }
+
+      .contact-list a {
+        color: #9ca3af;
+        transition: var(--transition);
+      }
+
+      .contact-list a:hover {
+        color: var(--primary);
+      }
+
+      .contact-list i {
+        color: var(--primary);
+        margin-top: 4px;
+        font-size: 14px;
+        width: 16px;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12.5px;
+        color: #6b7280;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      /* =========================================
+       MODAL PEMESANAN CEPAT
+      ========================================= */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(17, 24, 39, 0.65);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        padding: 20px;
+      }
+
+      .modal-overlay.active {
+        display: flex;
+        animation: fadeIn 0.2s ease;
+      }
+
+      .modal-card {
+        background: var(--white);
+        border-radius: 20px;
+        max-width: 440px;
+        width: 100%;
+        padding: 28px;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #f3f4f6;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 4px;
+      }
+
+      .modal-subtitle {
+        font-size: 12.5px;
+        color: #d97706;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+
+      .form-group {
+        margin-bottom: 14px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: var(--dark);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        font-family: inherit;
+        font-size: 13.5px;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* =========================================
+       RESPONSIVE BREAKPOINTS
+      ========================================= */
+      @media (max-width: 980px) {
+        .detail-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+
+        .pricing-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 71px;
+          left: 0;
+          right: 0;
+          background: var(--white);
+          flex-direction: column;
+          padding: 24px;
+          gap: 18px;
+          border-bottom: 1px solid var(--border-color);
+          box-shadow: var(--shadow-md);
+          display: none;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .mobile-toggle {
+          display: block;
+        }
+
+        .gallery-card {
+          min-height: 380px;
+          padding: 68px 18px 20px;
+        }
+
+        .gallery-thumbs {
+          position: static;
+          transform: none;
+          flex-direction: row;
+          order: 2;
+          margin-top: 16px;
+        }
+
+        .main-product-img {
+          margin-top: 0;
+          max-height: 280px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .detail-actions,
+        .spec-grid,
+        .trust-badges {
+          grid-template-columns: 1fr;
+        }
+
+        .price-stock-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .product-title {
+          font-size: 26px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <img src="assets/image/download.png" alt="Logo Mahira Printing" />
+        </a>
+
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="produk.html" class="active">Produk</a></li>
+            <li><a href="jasa.html">Jasa</a></li>
+            <li><a href="portofolio.html">Portfolio</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="riview.html">Review</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <button type="button" id="navOrderBtn" class="btn btn-primary btn-pill btn-sm">Pesan Sekarang <i class="fa-solid fa-arrow-right"></i></button>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Buka Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= DETAIL PRODUK MAIN SECTION ================= -->
+    <section class="product-detail-section">
+      <div class="container detail-grid">
+        <!-- Kolom Kiri: Gallery Produk dengan Thumbnail -->
+        <div class="gallery-card">
+          <div class="gallery-top-bar">
+            <span class="badge-terlaris"> <i class="fa-solid fa-fire"></i> <span id="prodBadge">Produk Terlaris</span> </span>
+            <div class="gallery-brand-mark">
+              Mahira
+              <span>PRINTING</span>
+            </div>
+          </div>
+
+          <!-- Thumbnail Kiri (Diisi Otomatis oleh JS) -->
+          <div class="gallery-thumbs" id="galleryThumbs"></div>
+
+          <!-- Gambar Utama -->
+          <img src="" alt="Produk Mahira Printing" class="main-product-img" id="mainProductImg" />
+        </div>
+
+        <!-- Kolom Kanan: Informasi & Spesifikasi -->
+        <div>
+          <div class="category-breadcrumb">
+            <span class="cat-name" id="prodCategory">KATEGORI</span>
+            <span>•</span>
+            <span class="cat-sub" id="prodSubCategory">Siap Cetak Skala Besar & Satuan</span>
+          </div>
+
+          <h1 class="product-title" id="prodTitle">Nama Produk</h1>
+
+          <div class="price-stock-row">
+            <div>
+              <div class="price-amount" id="prodPrice">Rp 0 <span>/ pcs</span></div>
+              <div class="price-note" id="prodPriceNote">*Keterangan minimal order</div>
+            </div>
+            <div class="stock-badge">
+              Stok :
+              <strong id="prodStock">Tersedia</strong>
+            </div>
+          </div>
+
+          <div class="desc-label">DESKRIPSI PRODUK</div>
+          <p class="product-description" id="prodDesc">Deskripsi lengkap produk.</p>
+
+          <!-- Kotak Spesifikasi Cetak Presisi -->
+          <div class="spec-box">
+            <div class="spec-header">
+              <span class="spec-header-title">Spesifikasi Cetak Presisi</span>
+              <span class="spec-header-tag">Standard Mahira Printing</span>
+            </div>
+
+            <div class="spec-grid">
+              <div>
+                <div class="spec-item-label" id="specLabel1">Pilihan Bahan</div>
+                <div class="spec-item-value" id="specValue1">-</div>
+              </div>
+              <div>
+                <div class="spec-item-label" id="specLabel2">Teknologi / Finishing</div>
+                <div class="spec-item-value" id="specValue2">-</div>
+              </div>
+              <div>
+                <div class="spec-item-label" id="specLabel3">Pilihan Dimensi</div>
+                <div class="spec-item-value" id="specValue3">-</div>
+              </div>
+              <div>
+                <div class="spec-item-label" id="specLabel4">Minimal Order</div>
+                <div class="spec-item-value" id="specValue4">-</div>
+              </div>
+            </div>
+
+            <div class="spec-estimate">
+              <i class="fa-regular fa-clock"></i>
+              <span>Estimasi Produksi: <strong id="prodEstimate">1 - 3 Hari Kerja</strong></span>
+            </div>
+          </div>
+
+          <!-- Tombol Pesan Sekarang & Kembali Ke Produk -->
+          <div class="detail-actions">
+            <button type="button" id="mainOrderBtn" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Pesan Sekarang</button>
+            <a href="produk.html" class="btn btn-dark"> <i class="fa-solid fa-arrow-left"></i> Kembali Ke Produk </a>
+          </div>
+
+          <!-- Kotak Info Butuh Custom? -->
+          <div class="custom-info-box">
+            <div class="custom-info-title"><i class="fa-solid fa-wand-magic-sparkles"></i> BUTUH CUSTOM?</div>
+            <p class="custom-info-desc">Jika produk ingin disesuaikan dengan desain, warna, jumlah, atau kebutuhan lainnya, silakan konsultasikan terlebih dahulu melalui WhatsApp Mahira Printing.</p>
+            <a href="#" id="customWaLink" target="_blank" rel="noopener noreferrer" class="custom-wa-link"> Konsultasikan Desain via WhatsApp (0882-9161-4900) <i class="fa-solid fa-arrow-right"></i> </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="trust-badges">
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-certificate"></i></div>
+              <div>
+                <div class="trust-title" id="trustTitle1">Bahan Berkualitas</div>
+                <div class="trust-sub" id="trustSub1">Terjamin & presisi</div>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-droplet"></i></div>
+              <div>
+                <div class="trust-title" id="trustTitle2">Warna Tajam Awet</div>
+                <div class="trust-sub" id="trustSub2">Hasil cetak resolusi tinggi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TABEL SKEMA HARGA (4 KOLOM) ================= -->
+    <section class="pricing-section" id="skema-harga">
+      <div class="container">
+        <div class="pricing-header">
+          <div>
+            <span class="pricing-eyebrow">TABEL SKEMA HARGA</span>
+            <h2 class="pricing-title" id="pricingTitle">Transparansi Harga Cetak</h2>
+            <p class="pricing-subtitle" id="pricingSubtitle">Makin banyak jumlah pesanan Anda, biaya cetak per unit semakin ekonomis.</p>
+          </div>
+          <span class="pricing-note-pill" id="pricingNotePill">Harga menyesuaikan spesifikasi</span>
+        </div>
+
+        <!-- Grid Paket Harga (Diisi Otomatis oleh JS) -->
+        <div class="pricing-grid" id="pricingGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= MODAL PEMESANAN CEPAT ================= -->
+    <div class="modal-overlay" id="orderModal">
+      <div class="modal-card">
+        <button type="button" class="modal-close" onclick="closeOrderModal()" aria-label="Tutup">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3 class="modal-title">Form Pemesanan Cepat</h3>
+        <p class="modal-subtitle" id="modalProductInfo">Nama Produk — Harga</p>
+
+        <form onsubmit="submitOrderToWA(event)">
+          <div class="form-group">
+            <label for="custName">Nama Lengkap / Instansi</label>
+            <input type="text" id="custName" class="form-control" placeholder="Contoh: Budi Santoso" required />
+          </div>
+          <div class="form-group">
+            <label for="custQty">Jumlah Pesanan</label>
+            <input type="text" id="custQty" class="form-control" placeholder="Contoh: 2 Box / 50 pcs" required />
+          </div>
+          <div class="form-group">
+            <label for="custNote">Catatan Desain / Spesifikasi</label>
+            <textarea id="custNote" rows="3" class="form-control" placeholder="Tuliskan ukuran, bahan, atau status file desain..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%"><i class="fa-brands fa-whatsapp"></i> Kirim Pesanan ke WhatsApp</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer" id="tentang">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="footer-logo-box">
+              <img src="assets/image/download.png" alt="Logo Mahira Printing" />
+            </a>
+            <p class="footer-about">Mahira Printing berkomitmen memberikan hasil cetak berkualitas dan terpercaya untuk kebutuhan bisnis Anda melalui layanan cetak offset, digital, serta pembuatan kemasan khusus.</p>
+            <div class="social-links">
+              <a href="https://instagram.com/mahiraprinting" target="_blank" rel="noopener noreferrer" aria-label="Instagram Mahira Printing"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://wa.me/6288291614900" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Mahira Printing"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="mailto:mahiraprintingg@gmail.com" aria-label="Email Mahira Printing"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">NAVIGASI</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="produk.html">Produk</a></li>
+              <li><a href="jasa.html">Jasa</a></li>
+              <li><a href="portofolio.html">Portfolio</a></li>
+              <li><a href="tentang.html">Tentang</a></li>
+              <li><a href="riview.html">Review</a></li>
+            </ul>
+          </div>
+
+          <div id="kontak">
+            <h4 class="footer-heading">CONTACT & SUPPORT</h4>
+            <ul class="contact-list">
+              <li>
+                <i class="fa-regular fa-envelope"></i>
+                <a href="mailto:mahiraprintingg@gmail.com">mahiraprintingg@gmail.com</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-instagram"></i>
+                <a href="https://instagram.com/mahiraprinting" target="_blank" rel="noopener noreferrer">@mahiraprinting</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-whatsapp"></i>
+                <a href="https://wa.me/6288291614900?text=Halo%20Mahira%20Printing,%20saya%20ingin%20bertanya." target="_blank" rel="noopener noreferrer">0882-9161-4900 (WhatsApp)</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>&copy; <span id="currentYear">2026</span> Mahira Printing. Hak Cipta Dilindungi Undang-Undang.</span>
+          <span>Presisi dalam Setiap Cetakan.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT DINAMIS PRODUK ================= -->
+    <script>
+      // 1. Database Lengkap 6 Produk (Slug harus sama persis dengan ?produk=... di produk.html)
+      const productsDatabase = {
+        "kartu-nama": {
+          title: "Kartu Nama Dof Premium",
+          category: "KERTAS & DESAIN",
+          subCategory: "Cetak Offset & Digital Presisi",
+          badge: "Pilihan Eksekutif",
+          price: "Rp 65.000",
+          unit: "/ box",
+          priceNote: "*1 Box isi 100 lembar. Tersedia potongan harga untuk pemesanan lebih dari 10 box.",
+          stock: "Ready",
+          description: "Kartu nama dengan hasil akhir sentuhan lembut seperti beludru (Laminasi Doff) dipadukan aksen Spot UV mengkilap pada bagian logo/nama di atas kertas Art Carton 400 gsm super tebal.",
+          images: ["https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=800&q=80"],
+          specs: [
+            { label: "Pilihan Bahan", value: "Art Carton 400 gsm / BW Import" },
+            { label: "Finishing", value: "Laminasi Doff + Spot UV / Foil" },
+            { label: "Ukuran Standar", value: "9 x 5,5 cm (Sudut Lancip/Round)" },
+            { label: "Minimal Order", value: "1 Box (100 Lembar)" },
+          ],
+          estimate: "1 - 2 Hari Kerja",
+          trust: [
+            { title: "Kertas 400gsm Tebal", sub: "Kaku, kokoh & tidak mudah tertekuk" },
+            { title: "Spot UV Presisi", sub: "Aksen timbul mengkilap elegan" },
+          ],
+          pricingTitle: "Transparansi Harga Cetak Kartu Nama",
+          pricingSubtitle: "Cetak lebih banyak untuk kebutuhan seluruh tim perusahaan Anda.",
+          pricingNote: "Sudah termasuk Box Kartu Nama Plastik",
+          tiers: [
+            { label: "PAKET HEMAT", qty: "1 - 2 Box", price: "Rp 65.000", unit: "/ box", features: ["Cetak 1 Sisi Full Color", "Laminasi Doff Halus", "Gratis Box Penyimpanan"] },
+            { label: "POPULER BISNIS", qty: "3 - 5 Box", price: "Rp 58.000", unit: "/ box", popular: true, features: ["Cetak 2 Sisi Bolak-Balik", "Laminasi Doff + Spot UV", "Gratis Cek Layout Desain"] },
+            { label: "TIM & KANTOR", qty: "6 - 15 Box", price: "Rp 50.000", unit: "/ box", features: ["Bisa beda nama per box", "Laminasi Doff + Spot UV", "Prioritas Pengerjaan"] },
+            { label: "CORPORATE", qty: "20+ Box", price: "Rp 42.000", unit: "/ box", features: ["Harga Grosir Perusahaan", "Opsi Hotprint Emas/Silver", "Gratis Ongkir Area Kota"] },
+          ],
+        },
+
+        "kotak-kemasan": {
+          title: "Kotak Kemasan Custom",
+          category: "KERTAS & DESAIN",
+          subCategory: "Packaging E-Commerce & Retail",
+          badge: "Best Packaging",
+          price: "Rp 6.500",
+          unit: "/ pcs",
+          priceNote: "*Minimal order 100 pcs. Harga menyesuaikan ukuran dimensi kotak dan jumlah warna cetak.",
+          stock: "Pre-Order",
+          description: "Kotak pengiriman mailer box berbahan kraft coklat dan gelombang E-Flute yang kokoh untuk melindungi produk Anda, lengkap dengan cetak logo brand custom yang rapi dan ramah lingkungan.",
+          images: ["https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80"],
+          specs: [
+            { label: "Pilihan Bahan", value: "Corrugated E-Flute Kraft / Ivory" },
+            { label: "Teknik Cetak", value: "Sablon Tajam / Cetak Offset" },
+            { label: "Pilihan Dimensi", value: "Custom (15x10x5 cm s/d 40x30x15 cm)" },
+            { label: "Minimal Order", value: "100 Pcs" },
+          ],
+          estimate: "3 - 5 Hari Kerja",
+          trust: [
+            { title: "Karton Tebal Kokoh", sub: "Aman untuk pengiriman ekspedisi" },
+            { title: "Die-Cut Presisi", sub: "Mudah dilipat tanpa perlu lem" },
+          ],
+          pricingTitle: "Transparansi Harga Kotak Kemasan",
+          pricingSubtitle: "Estimasi untuk ukuran standar 20x15x7 cm (bahan E-Flute Kraft).",
+          pricingNote: "Gratis pembuatan pisau pond untuk order 500+ pcs",
+          tiers: [
+            { label: "STARTER UMKM", qty: "100 - 249 pcs", price: "Rp 6.500", unit: "/ pcs", features: ["Bahan Kraft E-Flute", "Sablon 1 Warna 1 Sisi", "Model Mailer Box Lipat"] },
+            { label: "BRAND FAVORIT", qty: "250 - 499 pcs", price: "Rp 5.500", unit: "/ pcs", popular: true, features: ["Bahan Kraft / White Flute", "Sablon 2 Warna Tajam", "Gratis Mockup 3D Desain"] },
+            { label: "SKALA MENENGAH", qty: "500 - 999 pcs", price: "Rp 4.600", unit: "/ pcs", features: ["Cetak Full Color Offset", "Opsi Laminasi Luar", "Gratis Biaya Pisau Pond"] },
+            { label: "GROSIR PABRIK", qty: "1.000+ pcs", price: "Rp 3.800", unit: "/ pcs", features: ["Harga Produksi Massal", "Kualitas Ekspor Tebal", "Jadwal Kirim Bertahap"] },
+          ],
+        },
+
+        "banner-rollup": {
+          title: "Banner Roll-Up Aluminium",
+          category: "ADVERTISING & SIGNAGE",
+          subCategory: "Display Pameran & Promosi Toko",
+          badge: "Siap 1 Hari",
+          price: "Rp 195.000",
+          unit: "/ set",
+          priceNote: "*Sudah termasuk rangka roll-up aluminium, cetak visual banner, dan tas kanvas hitam.",
+          stock: "500 Set",
+          description: "Media promosi berdiri yang praktis dibawa ke pameran, seminar, atau depan toko. Menggunakan bahan Albatros Matte anti-keriting dengan tinta resolusi tinggi dan rangka aluminium kokoh.",
+          images: ["https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80"],
+          specs: [
+            { label: "Bahan Visual", value: "Albatros Matte + Laminasi Doff" },
+            { label: "Rangka Stand", value: "Aluminium Tebal + Tas Kanvas" },
+            { label: "Ukuran Standar", value: "60x160 cm, 80x200 cm, 85x200 cm" },
+            { label: "Minimal Order", value: "1 Set Lengkap" },
+          ],
+          estimate: "1 Hari Kerja (Bisa Ditunggu)",
+          trust: [
+            { title: "Anti Keriting", sub: "Permukaan halus & tegak lurus" },
+            { title: "Rangka Awet", sub: "Bisa ganti isi banner berkali-kali" },
+          ],
+          pricingTitle: "Transparansi Harga Banner Roll-Up",
+          pricingSubtitle: "Pilih ukuran display yang sesuai dengan kebutuhan acara Anda.",
+          pricingNote: "Harga sudah termasuk rangka + cetak + tas",
+          tiers: [
+            { label: "UKURAN COMPACT", qty: "60 x 160 cm", price: "Rp 195.000", unit: "/ set", features: ["Bahan Albatros Halus", "Rangka Aluminium Standar", "Gratis Tas Kanvas"] },
+            { label: "UKURAN STANDAR", qty: "80 x 200 cm", price: "Rp 235.000", unit: "/ set", popular: true, features: ["Albatros + Laminasi Doff", "Rangka Aluminium Tebal", "Cetak High-Resolution"] },
+            { label: "UKURAN LEBAR", qty: "85 x 200 cm", price: "Rp 265.000", unit: "/ set", features: ["Albatros + Laminasi Doff", "Kaki Penyangga Extra Kokoh", "Tampilan Lebih Luas"] },
+            { label: "PAKET EVENT", qty: "5+ Set (80x200)", price: "Rp 210.000", unit: "/ set", features: ["Desain Boleh Berbeda", "Laminasi Doff / Glossy", "Prioritas Cetak Cepat"] },
+          ],
+        },
+
+        "kaos-sablon": {
+          title: "Kaos Katun Combed Sablon",
+          category: "TEXTILE & SABLON",
+          subCategory: "Siap Cetak Skala Komunitas & Event",
+          badge: "Produk Terlaris",
+          price: "Rp 65.000",
+          unit: "/ pcs",
+          priceNote: "*Minimal order 24 pcs untuk sablon plastisol. Tersedia potongan harga grosir > 100 pcs.",
+          stock: "1000 Pcs",
+          description: "Kaos custom berbahan 100% Cotton Combed 24s/30s premium dengan sablon Plastisol berkerapatan tinggi maupun DTF elastis. Nyaman, menyerap keringat, dan awet untuk seragam komunitas maupun merchandise.",
+          images: ["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80"],
+          specs: [
+            { label: "Pilihan Bahan", value: "Cotton Combed 24s / 30s 100%" },
+            { label: "Jenis Sablon", value: "Plastisol High-Density / DTF Korea" },
+            { label: "Pilihan Ukuran", value: "S, M, L, XL, XXL (Reguler/Oversize)" },
+            { label: "Minimal Order", value: "24 Pcs (Plastisol) / 12 Pcs (DTF)" },
+          ],
+          estimate: "3 - 5 Hari Kerja",
+          trust: [
+            { title: "100% Cotton Combed", sub: "Adem, lembut & tidak menyusut" },
+            { title: "Sablon Anti Retak", sub: "Tahan cuci lebih dari 50x" },
+          ],
+          pricingTitle: "Transparansi Harga Kaos Sablon",
+          pricingSubtitle: "Makin banyak jumlah pesanan kaos Anda, biaya produksi per kaos semakin hemat.",
+          pricingNote: "Harga sudah termasuk kaos Combed 30s + Sablon",
+          tiers: [
+            { label: "KOMUNITAS KECIL", qty: "12 - 23 pcs", price: "Rp 75.000", unit: "/ pcs", features: ["Sablon DTF Full Color", "Cotton Combed 30s", "Bebas Pilih Warna Kaos"] },
+            { label: "PAKET EVENT", qty: "24 - 49 pcs", price: "Rp 65.000", unit: "/ pcs", popular: true, features: ["Sablon Plastisol / DTF", "Depan Logo + Belakang A3", "Gratis Mockup Desain"] },
+            { label: "PANITIA & GATHERING", qty: "50 - 99 pcs", price: "Rp 58.000", unit: "/ pcs", features: ["Sablon Plastisol Curing", "Cotton Combed 24s/30s", "Packing Plastik Satuan"] },
+            { label: "GROSIR PARTAI BESAR", qty: "100+ pcs", price: "Rp 52.000", unit: "/ pcs", features: ["Harga Spesial Konveksi", "Bisa Custom Label Leher", "Gratis Sablon Lengan"] },
+          ],
+        },
+
+        "papan-akrilik": {
+          title: "Papan Nama & Pajangan Akrilik Kustom",
+          category: "ADVERTISING & SIGNAGE",
+          subCategory: "Laser Cutting & UV Flatbed Print",
+          badge: "Presisi Tinggi",
+          price: "Rp 85.000",
+          unit: "/ pcs",
+          priceNote: "*Harga mulai dari ukuran 20x30 cm ketebalan 3mm-5mm. Bisa pesan satuan.",
+          stock: "Ready",
+          description: "Papan nama ruangan, plakat penghargaan, nomor meja, hingga signage logo toko berbahan akrilik cor bening (Clear Cast) yang dipotong presisi menggunakan mesin laser dan dicetak langsung dengan tinta UV.",
+          images: ["https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80"],
+          specs: [
+            { label: "Pilihan Bahan", value: "Akrilik Clear / Susu 3mm - 5mm" },
+            { label: "Teknologi Cetak", value: "Laser Cutting + UV Flatbed Print" },
+            { label: "Aksesoris Pasang", value: "Pen Iklan Stainless / Double Tape 3M" },
+            { label: "Minimal Order", value: "1 Pcs (Bisa Satuan)" },
+          ],
+          estimate: "2 - 3 Hari Kerja",
+          trust: [
+            { title: "Potongan Laser Halus", sub: "Tepi bening mengkilap tanpa gerigi" },
+            { title: "Tinta UV Tahan Cuaca", sub: "Cocok untuk indoor maupun outdoor" },
+          ],
+          pricingTitle: "Transparansi Harga Akrilik Custom",
+          pricingSubtitle: "Estimasi berdasarkan ukuran populer untuk kebutuhan kantor dan toko.",
+          pricingNote: "Sudah termasuk pen iklan stainless (khusus papan dinding)",
+          tiers: [
+            { label: "TENT CARD / MEJA", qty: "15 x 20 cm (3mm)", price: "Rp 85.000", unit: "/ pcs", features: ["Model Tekuk L / V", "Cetak UV Full Color", "Bisa Order Satuan"] },
+            { label: "PAPAN RUANGAN", qty: "20 x 30 cm (5mm)", price: "Rp 145.000", unit: "/ pcs", popular: true, features: ["Akrilik Tebal 5mm", "2 Pen Iklan Stainless", "Cetak UV Timbul"] },
+            { label: "SIGNAGE TOKO", qty: "30 x 45 cm (5mm)", price: "Rp 240.000", unit: "/ pcs", features: ["4 Pen Iklan Stainless", "Potong Bentuk Custom", "Tahan Panas & Hujan"] },
+            { label: "PAKET KANTOR", qty: "10+ Pcs", price: "Diskon 15%", unit: "/ paket", features: ["Bisa beda tulisan/ruang", "Gratis Setting Layout", "Packing Bubble Wrap Aman"] },
+          ],
+        },
+
+        "buku-catatan": {
+          title: "Buku Catatan Hardcover Custom",
+          category: "CUSTOM & SOUVENIR",
+          subCategory: "Merchandise Seminar & Corporate Gift",
+          badge: "Favorit Seminar",
+          price: "Rp 35.000",
+          unit: "/ pcs",
+          priceNote: "*Minimal order 50 pcs. Tersedia pilihan cetak logo deboss (emboss dalam) atau UV print.",
+          stock: "Pre-Order",
+          description: "Buku catatan agenda eksklusif dengan sampul keras kulit sintetis (Leatherette PU) yang di-deboss logo perusahaan Anda, dilengkapi pita pembatas, karet pengunci elastis, dan kertas isi 80 gsm.",
+          images: ["https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80"],
+          specs: [
+            { label: "Bahan Sampul", value: "Hardcover Leatherette PU Premium" },
+            { label: "Branding Logo", value: "Deboss / Foil Emas / UV Print" },
+            { label: "Ukuran & Isi", value: "A5 (14,8x21 cm) — 100 Lembar 80gsm" },
+            { label: "Minimal Order", value: "50 Pcs" },
+          ],
+          estimate: "4 - 7 Hari Kerja",
+          trust: [
+            { title: "Jilid Benang Kuat", sub: "Buku dapat dibuka rata 180 derajat" },
+            { title: "Kertas Halus 80gsm", sub: "Nyaman ditulis & tinta tidak tembus" },
+          ],
+          pricingTitle: "Transparansi Harga Buku Catatan",
+          pricingSubtitle: "Pilihan paket souvenir seminar, onboarding karyawan, dan merchandise acara.",
+          pricingNote: "Sudah termasuk plastik OPP satuan & logo cover",
+          tiers: [
+            { label: "PAKET SEMINAR", qty: "50 - 99 pcs", price: "Rp 35.000", unit: "/ pcs", features: ["Ukuran A5 Hardcover", "Logo Deboss / UV Cover", "Isi Bergaris 100 Lbr"] },
+            { label: "CORPORATE EVENT", qty: "100 - 249 pcs", price: "Rp 31.000", unit: "/ pcs", popular: true, features: ["Pilihan 8 Warna Cover", "Gratis Sisipan 1 Hal Profil", "Pita Pembatas & Karet"] },
+            { label: "GATHERING BESAR", qty: "250 - 499 pcs", price: "Rp 28.000", unit: "/ pcs", features: ["Deboss + Foil Emas/Silver", "Custom Halaman Depan", "Gratis Sample Fisik"] },
+            { label: "INSTANSI / KAMPUS", qty: "500+ pcs", price: "Rp 25.000", unit: "/ pcs", features: ["Harga Grosir Terbaik", "Custom Desain Isi Kertas", "Gratis Ongkir Area Kota"] },
+          ],
+        },
+      };
+
+      // 2. Ambil slug dari URL (?produk=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const productSlug = urlParams.get("produk");
+
+      // Jika slug tidak ada atau salah ketik, fallback ke produk pertama ("kartu-nama")
+      const currentProduct = productsDatabase[productSlug] || productsDatabase["kartu-nama"];
+
+      // 3. Render Data Produk ke Halaman
+      function renderProductDetail(product) {
+        document.getElementById("pageTitle").textContent = `${product.title} — Detail Produk | Mahira Printing`;
+        document.getElementById("prodBadge").textContent = product.badge;
+        document.getElementById("prodCategory").textContent = product.category;
+        document.getElementById("prodSubCategory").textContent = product.subCategory;
+        document.getElementById("prodTitle").textContent = product.title;
+        document.getElementById("prodPrice").innerHTML = `${product.price} <span>${product.unit}</span>`;
+        document.getElementById("prodPriceNote").textContent = product.priceNote;
+        document.getElementById("prodStock").textContent = product.stock;
+        document.getElementById("prodDesc").textContent = product.description;
+        document.getElementById("prodEstimate").textContent = product.estimate;
+
+        // Render Spesifikasi
+        product.specs.forEach((spec, idx) => {
+          const num = idx + 1;
+          document.getElementById(`specLabel${num}`).textContent = spec.label;
+          document.getElementById(`specValue${num}`).textContent = spec.value;
+        });
+
+        // Render Trust Badges
+        document.getElementById("trustTitle1").textContent = product.trust[0].title;
+        document.getElementById("trustSub1").textContent = product.trust[0].sub;
+        document.getElementById("trustTitle2").textContent = product.trust[1].title;
+        document.getElementById("trustSub2").textContent = product.trust[1].sub;
+
+        // Render Galeri Gambar & Thumbnail
+        const mainImg = document.getElementById("mainProductImg");
+        const thumbsContainer = document.getElementById("galleryThumbs");
+        mainImg.src = product.images[0];
+        mainImg.alt = product.title;
+
+        thumbsContainer.innerHTML = product.images
+          .map(
+            (imgUrl, index) => `
+            <button type="button" class="thumb-btn ${index === 0 ? "active" : ""}" onclick="changeImage(this, '${imgUrl}')">
+              <img src="${imgUrl}" alt="${product.title} ${index + 1}" />
+            </button>
+          `,
+          )
+          .join("");
+
+        // Render Tabel Skema Harga
+        document.getElementById("pricingTitle").textContent = product.pricingTitle;
+        document.getElementById("pricingSubtitle").textContent = product.pricingSubtitle;
+        document.getElementById("pricingNotePill").textContent = product.pricingNote;
+
+        const pricingGrid = document.getElementById("pricingGrid");
+        pricingGrid.innerHTML = product.tiers
+          .map(
+            (tier) => `
+            <div class="price-card ${tier.popular ? "popular" : ""}">
+              ${tier.popular ? '<span class="popular-tag">Paling Laris</span>' : ""}
+              <div>
+                <div class="tier-label">${tier.label}</div>
+                <div class="tier-qty">${tier.qty}</div>
+                <div class="tier-price">${tier.price} <span>${tier.unit}</span></div>
+                <ul class="tier-features">
+                  ${tier.features.map((feat) => `<li><i class="fa-solid fa-circle-check"></i> ${feat}</li>`).join("")}
+                </ul>
+              </div>
+              <button type="button" onclick="openOrderModal('${product.title} — ${tier.qty}', '${tier.price} ${tier.unit}')" class="btn ${tier.popular ? "btn-primary" : "btn-soft"}" style="width: 100%">
+                Pilih Paket
+              </button>
+            </div>
+          `,
+          )
+          .join("");
+
+        // Update Tombol Pesan & Link Konsultasi WhatsApp
+        const waText = encodeURIComponent(`Halo CS Mahira Printing, saya ingin konsultasi desain custom untuk produk *${product.title}*.`);
+        document.getElementById("customWaLink").href = `https://wa.me/6288291614900?text=${waText}`;
+
+        document.getElementById("mainOrderBtn").onclick = () => openOrderModal(product.title, `${product.price} ${product.unit}`);
+        document.getElementById("navOrderBtn").onclick = () => openOrderModal(product.title, `${product.price} ${product.unit}`);
+      }
+
+      // Jalankan render saat halaman dibuka
+      renderProductDetail(currentProduct);
+
+      // 4. Fungsi Ganti Foto Galeri
+      function changeImage(btnElement, imgSrc) {
+        document.querySelectorAll(".thumb-btn").forEach((b) => b.classList.remove("active"));
+        btnElement.classList.add("active");
+        const mainImg = document.getElementById("mainProductImg");
+        mainImg.style.opacity = "0.5";
+        setTimeout(() => {
+          mainImg.src = imgSrc;
+          mainImg.style.opacity = "1";
+        }, 150);
+      }
+
+      // 5. Fungsi Modal Pemesanan ke WhatsApp
+      let selectedPackage = "";
+      function openOrderModal(productName, priceInfo) {
+        selectedPackage = `${productName} (${priceInfo})`;
+        document.getElementById("modalProductInfo").textContent = selectedPackage;
+        document.getElementById("orderModal").classList.add("active");
+      }
+
+      function closeOrderModal() {
+        document.getElementById("orderModal").classList.remove("active");
+      }
+
+      function submitOrderToWA(e) {
+        e.preventDefault();
+        const name = document.getElementById("custName").value;
+        const qty = document.getElementById("custQty").value;
+        const note = document.getElementById("custNote").value || "-";
+
+        const message = `Halo Mahira Printing, saya ingin memesan:\n\n*Produk:* ${selectedPackage}\n*Nama:* ${name}\n*Jumlah:* ${qty}\n*Catatan:* ${note}`;
+        window.open(`https://wa.me/6288291614900?text=${encodeURIComponent(message)}`, "_blank");
+        closeOrderModal();
+      }
+
+      // 6. Toggle Menu Mobile & Tahun Footer
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+      const mobileToggle = document.getElementById("mobileToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        const icon = mobileToggle.querySelector("i");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-xmark");
+      });
+    </script>
+  </body>
+</html>
